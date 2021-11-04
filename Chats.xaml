@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="RocApp.Chats">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ChatList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <controls:CircleImage HeightRequest="50" WidthRequest="50" Source="{Binding Profile}"/>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                            <StackLayout Orientation="Vertical" Margin="10,0,0,0" >
+                                                <Label Text="{Binding FullName}" TextColor="#001a43" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Message}" TextColor="Gray"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" >
+                                                <Label Text="{Binding TimeSent}" TextColor="Gray"/>
+                                                <Label Text="{Binding UnseenMessages}" TextColor="Red" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                              
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
